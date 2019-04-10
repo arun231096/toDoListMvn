@@ -1,0 +1,8 @@
+*.class
+*.war
+Logs/ToDoList.log
+test-output/
+.jar/
+war/
+/bin/
+/target
