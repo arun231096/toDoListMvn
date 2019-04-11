@@ -1,28 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page session="false"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Create ToDo</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <meta charset="ISO-8859-1">
+  <title>Create ToDo</title>
+  <link rel="stylesheet" href="resources/css/style.css">
+  <script src="resources/js/script.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <style>
-    h3 {
-        color: red;
-    }
-  </style>
 </head>
 <body>
     <div class="col-sm-4" style="padding:20px;">
-    <%
-        if (request.getParameter("error") != null) {
-            out.println("<h3>"+request. getParameter("error")+"</h3>");
-        }
-    %>
+    <c:if test="${error != null }"> <h3>${error}</h3> </c:if>
         <h2>Create Your TODO</h2>
-        <form action="/ToDo-0.0.1-SNAPSHOT/create" method="post">
+        <form action="/ToDoList/create" method="post">
             <div class="form-group">
             <label>Title</label>
             <input type="text" name="title" class="form-control" required>

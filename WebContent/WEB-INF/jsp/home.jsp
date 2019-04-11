@@ -6,13 +6,10 @@
 <head>
 	<title>Home</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="resources/css/style.css">
+  <script src="resources/js/script.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <style>
-  	h3 {
-  		color: red;
-  	}
-  </style>
 </head>
 <body>
 	<div class="col-sm-12" style="padding:20px;">
@@ -27,6 +24,9 @@
 		       </a>
 			</div>
 	</div>
+	<%
+		int count =1;
+	%>
 		<table border="1" class="table table-striped">
 			<tr>
 				<th>Id</th>
@@ -41,7 +41,7 @@
 			</tr>
 			<c:forEach var="listValue" items="${lists}">
 				<tr>
-					<td>${listValue.id}</td>
+					<td><% out.println(count); count++; %></td>
 					<td>${listValue.title}</td>
 					<td>${listValue.estimation}</td>
 					<td>${listValue.startdate}</td>

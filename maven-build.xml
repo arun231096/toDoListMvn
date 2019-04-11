@@ -41,7 +41,7 @@
   <property name = "deploy.path" value = "D:\tools\apache-tomcat-8.5.37\webapps"/>
   <property name="tomcat.home" value="D:\tools\apache-tomcat-8.5.37" />
   <property name="browser" location="C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"/>
-  <property name="url" value="http://localhost:8080/ToDo-0.0.1-SNAPSHOT/"/>
+  <property name="url" value="http://localhost:8080/ToDoList/"/>
   <!-- ====================================================================== -->
   <!-- Defining classpaths                                                    -->
   <!-- ====================================================================== -->

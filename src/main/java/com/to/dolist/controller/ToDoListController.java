@@ -48,12 +48,14 @@ public class ToDoListController {
 		list.setStartdate(startdate);
 		list.setStatus(status);
 		list.setTitle(title);
-		ModelAndView model = new ModelAndView("redirect:/");
+		ModelAndView model;
 		try {
 			list = service.create(list);
+			model = new ModelAndView("redirect:/");
 			model.setStatus(HttpStatus.OK);
 			return model;
 		} catch (Exception e) {
+			model = new ModelAndView("create");
 			model.setStatus(HttpStatus.BAD_REQUEST);
 			if (e instanceof AppException) {
 				logger.error(((AppException) e).getErrorCodes());
