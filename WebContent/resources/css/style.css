@@ -1,6 +1,17 @@
   	h3 {
   		color: red;
   	}
-  	h1 {
+  	h1,h2 {
   		color: blue;
+  	}
+  
+  	.search {
+  		width: 250px;
+  		height: 35px;
+  		border: none;
+  		box-shadow: 0px 0px 2px gray;
+  		border-radius:0.2em;
+  	}
+  	.row {
+  		padding-bottom:15px;
   	}

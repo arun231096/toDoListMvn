@@ -20,6 +20,7 @@ import com.to.dolist.mapper.ToDoListMapper;
 import com.to.dolist.model.ToDoList;
 import com.to.dolist.utilities.Statements;
 
+
 @Repository
 @Transactional
 public class ToDoListDAO extends JdbcDaoSupport {
@@ -85,6 +86,21 @@ public class ToDoListDAO extends JdbcDaoSupport {
 	public int delete(long id) {
 		Object[] parms = new Object[] {id};
 		return this.getJdbcTemplate().update(Statements.DELETE,parms);
+	}
+	
+	public boolean findDuplicate(String title, String message) {
+		Object[] parms = new Object[] {title, message};
+		try {
+		this.getJdbcTemplate().queryForObject(Statements.FIND_DUPLICATE,parms, mapper);
+		return true;
+		}catch (Exception e) {
+			return false;
+		}
+	}
+	
+	public List<ToDoList> search(String title) {
+		Object[] parms = new Object[] { "%"+title+"%" };
+		return this.getJdbcTemplate().query(Statements.SEARCH,parms, mapper);
 	}
 	
 	@Bean

@@ -92,6 +92,8 @@
 
   <target name="install" description="Clean the output directory">
     <delete dir="${maven.build.dir}"/>
+  	<delete dir="${deploy.path}/${maven.build.finalName}"/>
+  	<delete dir="${deploy.path}/${maven.build.finalName}.war"/>
 
     <java classname="org.apache.catalina.startup.Bootstrap" fork="true">
       <classpath path="${tomcat.home}/bin/bootstrap.jar:${tomcat.home}/bin/tomcat-juli.jar" />
@@ -193,13 +195,16 @@
           todir="${maven.build.dir}/${maven.build.finalName}/WEB-INF/lib"/>
     <copy file="${maven.repo.local}/mysql/mysql-connector-java/5.1.6/mysql-connector-java-5.1.6.jar" 
           todir="${maven.build.dir}/${maven.build.finalName}/WEB-INF/lib"/>
-    <war destfile="${maven.build.dir}/${maven.build.finalName}.war" 
+
+  	<war destfile="${maven.build.dir}/${maven.build.finalName}.war" 
          compress="true" 
          webxml="src/main/webapp/WEB-INF/web.xml">
       <lib dir="${maven.build.dir}/${maven.build.finalName}/WEB-INF/lib"/>
       <classes dir="${maven.build.outputDir}"/>
-      <fileset dir="./WebContent" 
-               excludes="WEB-INF/web.xml"/>
+      <fileset dir="./WebContent"> 
+      	<include name="**/*.*"/>
+      	<exclude name ="**/web.xml"/>
+      </fileset>
     </war>
 
     <copy todir = "${deploy.path}" preservelastmodified = "true">

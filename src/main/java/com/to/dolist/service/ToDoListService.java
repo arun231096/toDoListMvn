@@ -11,4 +11,5 @@ public interface ToDoListService {
 	public ToDoList read(long id);
 	public List<ToDoList> readAll();
 	public boolean delete(long id);
+	public List<ToDoList> search(String title);
 }

@@ -33,9 +33,9 @@ public class ApplicationContextConfig {
 
        DriverManagerDataSource dataSource = new DriverManagerDataSource();
        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-       dataSource.setUrl("jdbc:mysql://pc1570:3306/arunkumar.angappan");
-       dataSource.setUsername("arunkumar.angappan");
-       dataSource.setPassword("demo"); 
+       dataSource.setUrl("jdbc:mysql://rpc71:3306/arunkumar");
+       dataSource.setUsername("root");
+       dataSource.setPassword("admin"); 
        System.out.println("## getDataSource: " + dataSource);
        return dataSource;
    }
