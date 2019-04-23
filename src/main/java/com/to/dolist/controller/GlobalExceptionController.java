@@ -35,8 +35,8 @@ public class GlobalExceptionController {
 	public ModelAndView handleAllException(Exception ex) {
 
 		ModelAndView model = new ModelAndView("error");
-		model.setStatus(HttpStatus.BAD_GATEWAY);
-		logger.info(HttpStatus.BAD_GATEWAY);
+		model.setStatus(HttpStatus.INTERNAL_SERVER_ERROR);
+		logger.info(HttpStatus.INTERNAL_SERVER_ERROR);
 		model.addObject("errMsg", "INTERNAL SERVER ERROR");
 		return model;
 

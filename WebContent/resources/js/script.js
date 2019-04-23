@@ -1,5 +1,4 @@
-(function ToDoList (url) {
-	this.url = url;
+(function ToDoList () {
 	this.id;
 	this.title;
 	this.message;
@@ -10,20 +9,20 @@
 
 	this.initalData = function() {
 		document.getElementById("title_search").value = "";
-		DoServ(url + "readAll", "GET");
+		DoServ("readAll", "GET");
 	}
 
 	this.create = function() {
-		DoServ(url + "todo/create", "GET");
+		DoServ("todo/create", "GET");
 	}
 
 	this.search = function() {
 		var title  = document.getElementById("title_search").value;
-		DoServ(url + "search?title=" + title, "GET");
+		DoServ("search?title=" + title, "GET");
 	}
 
 	this.readData = function(id) {
-		DoServ(url + "read?id=" + id, "GET");
+		DoServ("read?id=" + id, "GET");
 	}
 
 	createCall = function() {
@@ -34,7 +33,7 @@
 		this.startdate = document.getElementById("startdate").value;
 		this.duedate = document.getElementById("duedate").value;
 		validate(title, message, estimation, status, startdate, duedate);
-		DoServ(url + "create?"
+		DoServ("create?"
 				  +"title="+title
 			  	  +"&message="+message
 			  	  +"&estimation="+estimation
@@ -43,6 +42,6 @@
 			  	  +"&duedate="+duedate,"POST")
 	}
 
-}("/ToDoList/"));
+}());
 
 	
