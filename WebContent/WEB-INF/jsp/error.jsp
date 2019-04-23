@@ -4,15 +4,15 @@
 <html>
 <body>
 	<c:if test="${not empty errCode}">
-		<h1>${errCode} : System Errors</h1>
+		<h3>${errCode} : System Errors</h3>
 	</c:if>
 	
 	<c:if test="${empty errCode}">
-		<h1>System Errors</h1>
+		<h3>System Errors</h3>
 	</c:if>
 
 	<c:if test="${not empty errMsg}">
-		<h2>${errMsg}</h2>
+		<h3>${errMsg}</h3>
 	</c:if>
 	
 </body>
